@@ -2,7 +2,6 @@ import "./App.css";
 
 import {
   BrowserRouter,
-  Routes,
   Route,
   Switch,
   Redirect,
@@ -18,7 +17,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route path="/cart" component={Cart}></Route>
+          <Route path="/cart" exact component={Cart}></Route>
           <Route path="/not-found" component={NotFound}></Route>
           <Route path="/" exact component={Home}></Route>
           <Redirect to="/not-found" />
