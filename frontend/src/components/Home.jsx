@@ -2,12 +2,16 @@ import React from "react";
 import { useGetAllProductsQuery } from "../slices/productsApi";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../slices/cartSlice";
+import { useHistory } from "react-router-dom";
 
 const Home = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
   const dispatch = useDispatch()
+  const history = useHistory()
+
   const handleAddToCart = (product) => {
     dispatch(addToCart(product))
+    history.push("/cart")
   }
   return (
     <div className="home-container">
